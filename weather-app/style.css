@@ -1,0 +1,7 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /* this property allows you to include both margin and padding inside the defined dimensions */
+    
+}
