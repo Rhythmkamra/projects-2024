@@ -14,7 +14,7 @@ body{
     /* this width may have overflow of content unless property of text overflow is used  */
     max-width: 470px;
     /* whereas here the element is more flexible and adjust itself to the given dimensions */
-    background: linear-gradient(135deg,#00feba,#5b548a);
+    background: linear-gradient(135deg,#da20dae1,hsl(182, 80%, 48%));
     /* the degree represents the gradient that takes place at that angle i.e rhe colour change will take place at an angle of 135 degree */
     color:#fff;
     /* text colour */
@@ -67,4 +67,40 @@ body{
 }
 .search button img{
    width: 16px;
+}
+.weather-icon{
+    width: 170px;
+    margin-top: 30px;
+}
+.weather h1{
+    font-size:80px;
+    font-weight:500;
+}
+.weather h2{
+    font-size: 45px;
+    font-weight: 500;
+    margin-top: -10px;
+}
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 20px;
+    margin-top:50px;
+
+}
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+
+}
+.col img{
+    width:40px;
+    margin-right: 10px;
+
+}
+.humidity ,.wind{
+    font-size: 30px;
+    margin-top: -6px;
 }

@@ -16,7 +16,32 @@
             if false they are not -->
             <button><img src="images/search.png" alt=""></button>
         </div>
+        <div class="weather">
+        <img src="images/rain.png"  class="weather-icon">
+        <h1 class="temp">22°C</h1>
+        <h2 class="city">New York</h2>
+        <div class="details">
+            <div class="col">
+                <img src="images/humidity.png" alt="">
+                <div>
+                    <p class="humidity">50%</p>
+                    <p>humidity</p>
+                </div>
+            </div>
+            <div class="col">
+                <img src="images/wind.png" alt="">
+                <div>
+                    <p class="wind">15km/h</p>
+                    <p>wind speed</p>
+                </div>
+            </div>
+            
+        </div>
+        </div>
     </div>
-    
+    <script>
+        const apiKey ="80fac7c757e88b9f1674d2cbbac55aeb";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=bangalore";
+    </script>
 </body>
 </html>
