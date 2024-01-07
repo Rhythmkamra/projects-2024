@@ -14,12 +14,45 @@ body{
     /* this width may have overflow of content unless property of text overflow is used  */
     max-width: 470px;
     /* whereas here the element is more flexible and adjust itself to the given dimensions */
-    background: linear-gradient(135deg,#5b548a);
+    background: linear-gradient(135deg,#00feba,#5b548a);
+    /* the degree represents the gradient that takes place at that angle i.e rhe colour change will take place at an angle of 135 degree */
     color:#fff;
+    /* text colour */
     margin: 100px auto 0;
     /* top -right -bottom -left */
     /* since the left is also not specified the browser will set it to be also auto */
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+}
+.search{
+    width:100%;
+    display: flex;
+    /* THE DISPLAY PROPERTY */
+    /* THE WIDTH AND HEIGHT PROPERTIES CAN ONLY BE APPLIED TO THE BLOCK ELEMENTS NOT THE INLINE ELEMEMTS */
+    /* the display properties tells us how the elements are displayed on the screen 
+    it mostly has 2 attributes BLOCK OR INLINE 
+    the block elements are those which start on the new line and take up the full width 
+    eg:- h1 div p form footer*/
+    /* the inline elements are those who do not start on a new line just take the desired width they require */
+    justify-content: space-around;
+    /* its like arranging things horizontally inside a container like books inside a shelf */
+    align-items: center;
+}
+.search input{
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding:10px 25px ;
+    height: 60px;
+    border-radius:30px ;
+    flex: 1;
+    /* part of the flexbox that means giving equal portion to the items of the flexbox */
+    margin-right: 16px;
+    font-size:18px;
+
+}
+.search button{
+
 }
