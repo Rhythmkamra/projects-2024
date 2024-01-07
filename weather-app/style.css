@@ -9,3 +9,17 @@
 body{
     background: #222;
 }
+.card{
+    width: 90%;
+    /* this width may have overflow of content unless property of text overflow is used  */
+    max-width: 470px;
+    /* whereas here the element is more flexible and adjust itself to the given dimensions */
+    background: linear-gradient(135deg,#5b548a);
+    color:#fff;
+    margin: 100px auto 0;
+    /* top -right -bottom -left */
+    /* since the left is also not specified the browser will set it to be also auto */
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
