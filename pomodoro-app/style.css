@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('background.jpg'); /* Replace 'background.jpg' with the actual path to your image file */
+      /* explaination */
+    background-size: cover;
+    /* explaination */
+    background-position: left;
+    background-repeat: no-repeat;
+  }
+  .navbar
+  {
+   text-align: center;
+   font-size: 50px;
+   color: aliceblue;
+   font-weight: bolder;
+  }
+  #heading{
+    margin-top: 20px;
+  }
+  .container {
+    display: inline-block;
+    width: 48%; /* Adjust the width based on your preference */
+    margin: 1%; /* Add some margin between containers */
+    box-sizing: border-box;
+    padding: 20px;
+  }
