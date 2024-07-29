@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Attendance Request Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, textarea, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[readonly] {
+            background-color: #f5f5f5;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <h1>Event Attendance Request Form</h1>
+
+    <form id="attendanceForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="rollno">Roll Number:</label>
+        <input type="text" id="rollno" name="rollno" required>
+
+        <label for="dept">Department:</label>
+        <input type="text" id="dept" name="dept" value="COMPUTER SCIENCE ENGINEERING DEPT" readonly>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="technical">Technical</option>
+            <option value="sports">Sports</option>
+            <option value="cultural">Cultural</option>
+        </select>
+
+        <label for="venue">Event Venue:</label>
+        <input type="text" id="venue" name="venue" required>
+
+        <label for="date">Event Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="details">Event Details:</label>
+        <textarea id="details" name="details" rows="3" required></textarea>
+
+        <label for="message">Message to Head of Department:</label>
+        <textarea id="message" name="message" rows="4" required>
+Dear Head of Department,
+
+I, [Your Name], a student of COMPUTER SCIENCE ENGINEERING DEPT, kindly request you to grant me attendance for the event being held at [Event Venue] on [Event Date]. Your consideration and approval for this request would be highly appreciated.
+
+Thank you,
+[Your Name]
+        </textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('attendanceForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const name = document.getElementById('name').value;
+            const rollno = document.getElementById('rollno').value;
+            const dept = document.getElementById('dept').value;
+            const category = document.getElementById('category').value;
+            const venue = document.getElementById('venue').value;
+            const date = document.getElementById('date').value;
+            const details = document.getElementById('details').value;
+            const message = document.getElementById('message').value;
+
+            // Center the heading and increase the font size
+            doc.setFontSize(16);
+            doc.text('Event Attendance Request', doc.internal.pageSize.getWidth() / 2, 20, { align: 'center' });
+
+            // Set the font size back to normal for the rest of the text
+            doc.setFontSize(12);
+
+            const leftMargin = 20;
+            const verticalSpacing = 10;
+            let currentY = 40;
+
+            // Bold the field names
+            doc.setFont('Helvetica', 'bold');
+            doc.text('Name:', leftMargin, currentY);
+            doc.text('Roll Number:', leftMargin, currentY += verticalSpacing);
+            doc.text('Department:', leftMargin, currentY += verticalSpacing);
+            doc.text('Category:', leftMargin, currentY += verticalSpacing);
+            doc.text('Event Venue:', leftMargin, currentY += verticalSpacing);
+            doc.text('Event Date:', leftMargin, currentY += verticalSpacing);
+            doc.text('Event Details:', leftMargin, currentY += verticalSpacing);
+
+            // Reset font to normal for the field values
+            doc.setFont('Helvetica', 'normal');
+            currentY = 40;
+            doc.text(name, leftMargin + 60, currentY);
+            doc.text(rollno, leftMargin + 60, currentY += verticalSpacing);
+            doc.text(dept, leftMargin + 60, currentY += verticalSpacing);
+            doc.text(category, leftMargin + 60, currentY += verticalSpacing);
+            doc.text(venue, leftMargin + 60, currentY += verticalSpacing);
+            doc.text(date, leftMargin + 60, currentY += verticalSpacing);
+            doc.text(details, leftMargin + 60, currentY += verticalSpacing);
+
+            // Add the multiline message without a separate heading
+            const splitMessage = doc.splitTextToSize(message, 180);
+            doc.text(splitMessage, leftMargin, currentY += verticalSpacing);
+
+            doc.save('attendance_request.pdf');
+        });
+    </script>
+
+</body>
+</html>
